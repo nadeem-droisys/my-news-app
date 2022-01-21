@@ -2,7 +2,12 @@ import './App.css';
 import React, { Component } from 'react'
 import Navbar from './Navbar';
 import News from './News';
-;
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 export class App extends Component {
@@ -11,8 +16,17 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
-        <News  key="general" pageSize={10} country="us" category="general"/>
+        <BrowserRouter>
+        <Navbar/> <Routes> 
+          <Route path="/" element={<News key="general"  country="in" category="general"/>} /> 
+          {/* <Route path="/business" element={<News key="business" pageSize={5} country="in" category="business"/>} /> 
+          <Route path="/entertainment" element={<News key="entertainment" pageSize={5} country="in" category="entertainment"/>} />  
+          <Route path="/health" element={<News key="health" pageSize={5} country="in" category="health"/>} /> 
+          <Route path="/science" element={<News key="science" pageSize={5} country="in" category="science"/>} /> 
+          <Route path="/sports" element={<News key="sports" pageSize={5} country="in" category="sports"/>} /> 
+          <Route path="/technology" element={<News key="technology" pageSize={5} country="in" category="technology"/>} />  */}
+          </Routes>
+        </BrowserRouter>
       </div>
     )
 }
